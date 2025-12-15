@@ -2,8 +2,8 @@
 %bcond_without test
 
 Name:		python-asttokens
-Version:	3.0.0
-Release:	2
+Version:	3.0.1
+Release:	1
 Summary:	Annotate AST trees with source code positions
 URL:		https://pypi.org/project/asttokens/
 License:	Apache-2.0
