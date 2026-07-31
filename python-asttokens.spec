@@ -2,7 +2,7 @@
 %bcond_without test
 
 Name:		python-asttokens
-Version:	3.0.1
+Version:	3.0.2
 Release:	1
 Summary:	Annotate AST trees with source code positions
 URL:		https://pypi.org/project/asttokens/
@@ -27,7 +27,7 @@ BuildRequires:	python%{pyver}dist(pytest)
 Annotate AST trees with source code positions.
 
 %prep
-%autosetup -p1 -n %{module}-%{version}
+%autosetup -p1 -n asttokens-3.0.2
 
 %build
 %py_build
