@@ -1,9 +1,10 @@
 %define module asttokens
-%bcond_without test
+# astroid is still Python 3.14, and the test extra requires it.
+%bcond_with test
 
 Name:		python-asttokens
 Version:	3.0.2
-Release:	1
+Release:	2
 Summary:	Annotate AST trees with source code positions
 URL:		https://pypi.org/project/asttokens/
 License:	Apache-2.0
@@ -14,12 +15,12 @@ BuildArch:	noarch
 
 BuildRequires:	python
 BuildRequires:	pkgconfig(python3)
-BuildRequires:	python%{pyver}dist(astroid)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(setuptools-scm)
 BuildRequires:	python%{pyver}dist(toml)
 BuildRequires:	python%{pyver}dist(wheel)
 %if %{with test}
+BuildRequires:	python%{pyver}dist(astroid)
 BuildRequires:	python%{pyver}dist(pytest)
 %endif
 
@@ -30,6 +31,8 @@ Annotate AST trees with source code positions.
 %autosetup -p1 -n asttokens-3.0.2
 
 %build
+# The sdist has no git tag for setuptools_scm.
+export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 %py_build
 
 %install
